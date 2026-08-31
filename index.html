@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kvist — A practical Lisp for native software</title>
     <meta name="description" content="Kvist is a native, statically typed Lisp with a REPL that compiles to readable Odin. Explore the language, documentation, examples, and source code.">
-    <meta name="theme-color" content="#f4f0e5">
+    <meta name="theme-color" content="#f6f4ed">
     <link rel="canonical" href="https://kvist-lang.org/">
     <link rel="icon" href="/kvist.png" type="image/png">
     <link rel="stylesheet" href="/style.css">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kvist">
     <meta property="og:title" content="Kvist — A practical Lisp for native software">
-    <meta property="og:description" content="Clojure-inspired syntax and interactive development with Odin's native, statically typed execution model.">
+    <meta property="og:description" content="A native, statically typed Lisp with a REPL that compiles to readable Odin.">
     <meta property="og:url" content="https://kvist-lang.org/">
     <meta property="og:image" content="https://kvist-lang.org/kvist.png">
     <meta property="og:image:alt" content="The Kvist logo">
@@ -36,72 +36,110 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Kvist home">
-        <img src="/kvist.png" width="42" height="42" alt="">
-        <span>Kvist</span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="https://github.com/kvist-lang/kvist/blob/main/README.md">About</a>
-        <a href="https://github.com/kvist-lang/kvist/tree/main/docs">Docs</a>
-        <a href="https://github.com/kvist-lang/kvist">GitHub</a>
-      </nav>
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Kvist home">
+          <img src="/kvist.png" width="44" height="44" alt="">
+          <span>Kvist</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="https://github.com/kvist-lang/kvist/blob/main/README.md">Overview</a>
+          <a href="https://github.com/kvist-lang/kvist/tree/main/docs">Documentation</a>
+          <a href="https://github.com/kvist-lang/kvist/tree/main/examples">Examples</a>
+          <a href="https://github.com/kvist-lang/kvist">Source</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">A practical Lisp for native software</p>
-          <h1 id="hero-title">Lisp clarity.<br>Native foundations.</h1>
-          <p class="lede">
-            Kvist combines Clojure-inspired syntax, source macros, and
-            interactive development with Odin&rsquo;s native, statically typed
-            execution model.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="https://github.com/kvist-lang/kvist">View on GitHub</a>
-            <a class="button secondary" href="https://github.com/kvist-lang/kvist/tree/main/docs">Read the docs <span aria-hidden="true">&rarr;</span></a>
+      <section class="introduction" aria-labelledby="intro-title">
+        <div class="title-block">
+          <img src="/kvist.png" width="116" height="116" alt="The Kvist logo">
+          <div>
+            <h1 id="intro-title">Kvist</h1>
+            <p>A practical Lisp for native software that compiles to Odin.</p>
           </div>
         </div>
 
-        <section class="code-window" aria-label="Kvist code example">
-          <div class="code-title"><span></span><span></span><span></span><b>hello.kvist</b></div>
-          <pre><code><span class="syntax-keyword">(defstruct</span> User {
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <p>
+              Kvist combines Clojure-inspired syntax, source macros,
+              data-oriented programming, and interactive development with
+              Odin&rsquo;s native, statically typed execution model.
+            </p>
+            <p>
+              Ordinary values have Odin-like representation and ownership.
+              Allocation and mutation remain explicit, generated programs need
+              no VM or garbage collector, and Kvist and Odin source files can
+              coexist in the same package.
+            </p>
+            <p>
+              When the shape itself is data, Kvist also provides immutable
+              EDN-shaped maps, vectors, sets, lists, keywords, symbols, and
+              tagged values.
+            </p>
+            <p class="inline-links">
+              <a href="https://github.com/kvist-lang/kvist/blob/main/README.md">Project overview</a>
+              <span aria-hidden="true">&middot;</span>
+              <a href="https://github.com/kvist-lang/kvist/releases">Releases</a>
+              <span aria-hidden="true">&middot;</span>
+              <a href="https://github.com/kvist-lang/kvist">GitHub</a>
+            </p>
+          </div>
+
+          <section class="code-example" aria-label="Kvist code example">
+            <div class="code-label">Kvist</div>
+            <pre><code><span class="syntax-form">(defstruct</span> User {
   name: string
   active?: bool
 })
 
-<span class="syntax-keyword">(defn</span> active-names [users: []User]
-  <span class="syntax-keyword">(into</span> [dynamic]string
-    <span class="syntax-keyword">(comp</span>
-      <span class="syntax-keyword">(filter</span> .active?)
-      <span class="syntax-keyword">(map</span> .name))
+<span class="syntax-form">(defn</span> active-names [users: []User]
+  <span class="syntax-form">(into</span> [dynamic]string
+    <span class="syntax-form">(comp</span>
+      <span class="syntax-form">(filter</span> .active?)
+      <span class="syntax-form">(map</span> .name))
     users))</code></pre>
-        </section>
+          </section>
+        </div>
       </section>
 
-      <section class="principles" aria-label="Kvist highlights">
-        <article>
-          <p class="number">01</p>
-          <h2>Native by default</h2>
-          <p>Concrete types, predictable costs, explicit memory, and no VM or garbage collector.</p>
-        </article>
-        <article>
-          <p class="number">02</p>
-          <h2>Interactive</h2>
-          <p>A native REPL keeps definitions, typed values, macros, and recent results alive.</p>
-        </article>
-        <article>
-          <p class="number">03</p>
-          <h2>Made for data</h2>
-          <p>Immutable EDN-shaped values make transactions, queries, messages, and DSLs feel at home.</p>
-        </article>
+      <section class="section" aria-labelledby="overview-title">
+        <h2 id="overview-title">Language overview</h2>
+        <div class="topic-grid">
+          <article>
+            <h3>Native and statically typed</h3>
+            <p>Structs, arrays, maps, pointers, procedures, allocators, and ownership retain concrete native representation and predictable costs.</p>
+          </article>
+          <article>
+            <h3>Interactive development</h3>
+            <p>The native REPL keeps definitions, typed values, imports, macros, and recent results between submissions.</p>
+          </article>
+          <article>
+            <h3>Odin interoperability</h3>
+            <p>Kvist imports Odin packages directly and lowers to readable Odin. No wrapper ecosystem is required.</p>
+          </article>
+          <article>
+            <h3>Data-oriented programming</h3>
+            <p>Immutable EDN-shaped values support destructuring, structural matching, persistent updates, validation, and data DSLs.</p>
+          </article>
+          <article>
+            <h3>Source macros</h3>
+            <p>Lisp forms can be transformed at compile time without adding a dynamic runtime object model.</p>
+          </article>
+          <article>
+            <h3>Transforms and iterators</h3>
+            <p>Collection pipelines compile to direct loops without lazy sequences or unnecessary intermediate collections.</p>
+          </article>
+        </div>
       </section>
 
-      <section class="start" aria-labelledby="start-title">
+      <section class="section two-column-section" aria-labelledby="start-title">
         <div>
-          <p class="eyebrow">Get started</p>
-          <h2 id="start-title">From source to native code.</h2>
-          <p>Kvist compiles to readable Odin and imports Odin packages directly. Clone the repository and build the CLI with an installed Odin toolchain.</p>
+          <h2 id="start-title">Getting started</h2>
+          <p>Install the <a href="https://odin-lang.org/docs/install/">Odin compiler</a>, clone the repository, and build the Kvist CLI from the repository root.</p>
+          <p>Kvist is tested on macOS and Linux. The core CLI and representative programs are also tested on Windows.</p>
+          <p><a href="https://github.com/kvist-lang/kvist#quickstart">Read the complete quickstart</a></p>
         </div>
         <pre class="terminal"><code><span>$</span> git clone https://github.com/kvist-lang/kvist.git
 <span>$</span> cd kvist
@@ -109,23 +147,40 @@
 <span>$</span> ./kvist run examples/language/hello.kvist</code></pre>
       </section>
 
-      <section class="links" aria-labelledby="explore-title">
-        <div>
-          <p class="eyebrow">Explore</p>
-          <h2 id="explore-title">Go deeper when you&rsquo;re ready.</h2>
-        </div>
-        <div class="link-list">
-          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/language.md"><span>Language reference</span><span aria-hidden="true">&rarr;</span></a>
-          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/REPL.md"><span>Native REPL</span><span aria-hidden="true">&rarr;</span></a>
-          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/odin.md"><span>Odin interoperability</span><span aria-hidden="true">&rarr;</span></a>
-          <a href="https://github.com/kvist-lang/kvist/tree/main/examples"><span>Examples</span><span aria-hidden="true">&rarr;</span></a>
+      <section class="section docs-section" aria-labelledby="docs-title">
+        <h2 id="docs-title">Documentation</h2>
+        <div class="docs-grid">
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/language.md">
+            <strong>Language reference</strong>
+            <span>Syntax, declarations, types, control flow, and functions.</span>
+          </a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/REPL.md">
+            <strong>Native REPL</strong>
+            <span>Interactive development, retained values, and live code.</span>
+          </a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/data.md">
+            <strong>Data</strong>
+            <span>Immutable EDN-shaped values, matching, and decoding.</span>
+          </a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/odin.md">
+            <strong>Odin interoperability</strong>
+            <span>Using Odin packages, types, procedures, and source files.</span>
+          </a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/macros.md">
+            <strong>Macros</strong>
+            <span>Compile-time source transformation.</span>
+          </a>
+          <a href="https://github.com/kvist-lang/kvist/tree/main/examples">
+            <strong>Examples</strong>
+            <span>Small programs covering the language and its libraries.</span>
+          </a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Kvist is open source under the MIT License.</p>
-      <a href="https://github.com/kvist-lang/kvist">Source and documentation</a>
+      <p>Kvist is open source under the <a href="https://github.com/kvist-lang/kvist/blob/main/LICENSE">MIT License</a>.</p>
+      <p>Website source: <a href="https://github.com/kvist-lang/kvist-lang.org">GitHub</a></p>
     </footer>
   </body>
 </html>
