@@ -1,0 +1,113 @@
+{
+  "siteName": "Kvist",
+  "siteUrl": "https://kvist-lang.org",
+  "themeColor": "#f6f4ed",
+  "favicon": "/kvist.png",
+  "tagline": "A practical Lisp for native software that compiles to Odin.",
+  "docsIntro": "Language guides and reference documentation for Kvist.",
+  "sourceRepository": "https://github.com/kvist-lang/kvist",
+  "sourceBranch": "main",
+  "licenseName": "MIT License",
+  "licenseUrl": "https://github.com/kvist-lang/kvist/blob/main/LICENSE",
+  "groups": [
+    {
+      "title": "Start",
+      "items": [
+        {
+          "file": "language.md",
+          "label": "Language reference",
+          "slug": "language",
+          "description": "Syntax, declarations, types, control flow, and functions."
+        },
+        {
+          "file": "REPL.md",
+          "label": "Native REPL",
+          "slug": "repl",
+          "description": "Interactive development, inspection, debugging, and live code."
+        },
+        {
+          "file": "NREPL.md",
+          "label": "nREPL",
+          "slug": "nrepl",
+          "description": "Editor integration for Calva, CIDER, and Conjure."
+        },
+        {
+          "file": "data.md",
+          "label": "Data",
+          "slug": "data",
+          "description": "Immutable EDN-shaped values, matching, validation, and decoding."
+        }
+      ]
+    },
+    {
+      "title": "Programming",
+      "items": [
+        {
+          "file": "DATA-ORIENTED-PROGRAMMING.md",
+          "label": "Data-oriented programming",
+          "slug": "data-oriented-programming",
+          "description": "Choosing between concrete native values and data."
+        },
+        {
+          "file": "sequences.md",
+          "label": "Sequences",
+          "slug": "sequences",
+          "description": "Arrays, maps, sets, strings, struct-of-arrays, and ownership."
+        },
+        {
+          "file": "transforms.md",
+          "label": "Transforms",
+          "slug": "transforms",
+          "description": "Fused collection transforms and iterators."
+        },
+        {
+          "file": "macros.md",
+          "label": "Macros",
+          "slug": "macros",
+          "description": "Compile-time source transformation."
+        },
+        {
+          "file": "CONDITIONS.md",
+          "label": "Conditions and restarts",
+          "slug": "conditions",
+          "description": "Handlers, recovery, and compiled restarts."
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "items": [
+        {
+          "file": "packages.md",
+          "label": "Packages",
+          "slug": "packages",
+          "description": "Shipped and optional packages."
+        },
+        {
+          "file": "odin.md",
+          "label": "Odin interoperability",
+          "slug": "odin",
+          "description": "Using Odin packages, types, procedures, and source files."
+        },
+        {
+          "file": "parallel.md",
+          "label": "Parallel helpers",
+          "slug": "parallel",
+          "description": "Thread-backed parallel helpers."
+        },
+        {
+          "file": "testing.md",
+          "label": "Testing",
+          "slug": "testing",
+          "description": "Tests, fixtures, and assertions."
+        },
+        {
+          "file": "tooling.md",
+          "label": "Tooling",
+          "slug": "tooling",
+          "description": "CLI commands and editor tooling."
+        }
+      ]
+    }
+  ]
+}
