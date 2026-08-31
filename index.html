@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kvist — A practical Lisp for native software</title>
+    <meta name="description" content="Kvist is a native, statically typed Lisp with a REPL that compiles to readable Odin. Explore the language, documentation, examples, and source code.">
+    <meta name="theme-color" content="#f4f0e5">
+    <link rel="canonical" href="https://kvist-lang.org/">
+    <link rel="icon" href="/kvist.png" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kvist">
+    <meta property="og:title" content="Kvist — A practical Lisp for native software">
+    <meta property="og:description" content="Clojure-inspired syntax and interactive development with Odin's native, statically typed execution model.">
+    <meta property="og:url" content="https://kvist-lang.org/">
+    <meta property="og:image" content="https://kvist-lang.org/kvist.png">
+    <meta property="og:image:alt" content="The Kvist logo">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Kvist",
+        "description": "A practical Lisp for native software that compiles to Odin.",
+        "url": "https://kvist-lang.org/",
+        "codeRepository": "https://github.com/kvist-lang/kvist",
+        "programmingLanguage": ["Kvist", "Odin"],
+        "license": "https://opensource.org/license/mit"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kvist home">
+        <img src="/kvist.png" width="42" height="42" alt="">
+        <span>Kvist</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="https://github.com/kvist-lang/kvist/blob/main/README.md">About</a>
+        <a href="https://github.com/kvist-lang/kvist/tree/main/docs">Docs</a>
+        <a href="https://github.com/kvist-lang/kvist">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">A practical Lisp for native software</p>
+          <h1 id="hero-title">Lisp clarity.<br>Native foundations.</h1>
+          <p class="lede">
+            Kvist combines Clojure-inspired syntax, source macros, and
+            interactive development with Odin&rsquo;s native, statically typed
+            execution model.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/kvist-lang/kvist">View on GitHub</a>
+            <a class="button secondary" href="https://github.com/kvist-lang/kvist/tree/main/docs">Read the docs <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+
+        <section class="code-window" aria-label="Kvist code example">
+          <div class="code-title"><span></span><span></span><span></span><b>hello.kvist</b></div>
+          <pre><code><span class="syntax-keyword">(defstruct</span> User {
+  name: string
+  active?: bool
+})
+
+<span class="syntax-keyword">(defn</span> active-names [users: []User]
+  <span class="syntax-keyword">(into</span> [dynamic]string
+    <span class="syntax-keyword">(comp</span>
+      <span class="syntax-keyword">(filter</span> .active?)
+      <span class="syntax-keyword">(map</span> .name))
+    users))</code></pre>
+        </section>
+      </section>
+
+      <section class="principles" aria-label="Kvist highlights">
+        <article>
+          <p class="number">01</p>
+          <h2>Native by default</h2>
+          <p>Concrete types, predictable costs, explicit memory, and no VM or garbage collector.</p>
+        </article>
+        <article>
+          <p class="number">02</p>
+          <h2>Interactive</h2>
+          <p>A native REPL keeps definitions, typed values, macros, and recent results alive.</p>
+        </article>
+        <article>
+          <p class="number">03</p>
+          <h2>Made for data</h2>
+          <p>Immutable EDN-shaped values make transactions, queries, messages, and DSLs feel at home.</p>
+        </article>
+      </section>
+
+      <section class="start" aria-labelledby="start-title">
+        <div>
+          <p class="eyebrow">Get started</p>
+          <h2 id="start-title">From source to native code.</h2>
+          <p>Kvist compiles to readable Odin and imports Odin packages directly. Clone the repository and build the CLI with an installed Odin toolchain.</p>
+        </div>
+        <pre class="terminal"><code><span>$</span> git clone https://github.com/kvist-lang/kvist.git
+<span>$</span> cd kvist
+<span>$</span> odin build src/cli/kvist
+<span>$</span> ./kvist run examples/language/hello.kvist</code></pre>
+      </section>
+
+      <section class="links" aria-labelledby="explore-title">
+        <div>
+          <p class="eyebrow">Explore</p>
+          <h2 id="explore-title">Go deeper when you&rsquo;re ready.</h2>
+        </div>
+        <div class="link-list">
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/language.md"><span>Language reference</span><span aria-hidden="true">&rarr;</span></a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/REPL.md"><span>Native REPL</span><span aria-hidden="true">&rarr;</span></a>
+          <a href="https://github.com/kvist-lang/kvist/blob/main/docs/odin.md"><span>Odin interoperability</span><span aria-hidden="true">&rarr;</span></a>
+          <a href="https://github.com/kvist-lang/kvist/tree/main/examples"><span>Examples</span><span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Kvist is open source under the MIT License.</p>
+      <a href="https://github.com/kvist-lang/kvist">Source and documentation</a>
+    </footer>
+  </body>
+</html>
