@@ -8,7 +8,7 @@
   "sourceRepository": "https://github.com/kvist-lang/kvist",
   "sourceBranch": "main",
   "licenseName": "MIT License",
-  "licenseUrl": "https://github.com/kvist-lang/kvist/blob/main/LICENSE",
+  "licenseUrl": "https://opensource.org/license/mit",
   "groups": [
     {
       "title": "Start",
