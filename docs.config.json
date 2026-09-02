@@ -29,7 +29,7 @@
           "file": "NREPL.md",
           "label": "nREPL",
           "slug": "nrepl",
-          "description": "Editor integration for Calva, CIDER, and Conjure."
+          "description": "Editor integration for Calva and CIDER."
         },
         {
           "file": "data.md",
