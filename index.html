@@ -70,17 +70,18 @@
 
           <section class="code-example" aria-label="Kvist code example">
             <div class="code-label">Kvist</div>
-            <pre><code><span class="syntax-form">(defstruct</span> User {
-  name: string
-  active?: bool
-})
+            <pre><code><span class="syntax-form">(defstruct</span> User [name: string, active?: bool])
 
-<span class="syntax-form">(defn</span> active-names [users: []User]
+<span class="syntax-form">(defn</span> active-names [users: []User] -&gt; [dynamic]string
   <span class="syntax-form">(into</span> [dynamic]string
     <span class="syntax-form">(comp</span>
       <span class="syntax-form">(filter</span> .active?)
       <span class="syntax-form">(map</span> .name))
-    users))</code></pre>
+    users))
+
+(active-names
+  [(User :name "a")
+   (User :name "b" :active? true)])</code></pre>
           </section>
         </div>
       </section>
