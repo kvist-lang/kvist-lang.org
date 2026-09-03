@@ -217,7 +217,6 @@ a:focus-visible {
 .markdown-body .hljs-name,
 .markdown-body .hljs-section {
   color: var(--code-ink);
-  font-weight: 600;
 }
 .markdown-body table {
   display: block;
