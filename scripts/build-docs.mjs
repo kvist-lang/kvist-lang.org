@@ -1,7 +1,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import hljs from 'highlight.js';
+import odin from 'highlightjs-odinlang';
 import { Marked } from 'marked';
+
+hljs.registerLanguage('odin', odin);
+
+const languageAliases = new Map([
+  ['elisp', 'lisp'],
+  ['shell', 'bash'],
+  ['sh', 'bash'],
+  ['zsh', 'bash']
+]);
 
 function parseArgs(argv) {
   const args = {};
@@ -27,6 +38,22 @@ function escapeHtml(value) {
 
 function escapeXml(value) {
   return escapeHtml(value);
+}
+
+function codeLanguage(info) {
+  const language = String(info || '').trim().split(/\s+/, 1)[0].toLowerCase();
+  return languageAliases.get(language) || language;
+}
+
+function highlightCode(source, language) {
+  if (!language || !hljs.getLanguage(language)) {
+    return escapeHtml(source);
+  }
+  try {
+    return hljs.highlight(source, { language, ignoreIllegals: true }).value;
+  } catch {
+    return escapeHtml(source);
+  }
 }
 
 function stripMarkdown(value) {
@@ -162,6 +189,14 @@ function pageTemplate(config, page) {
 function renderDocument(config, markdown, currentFile, routeByFile, repositoryRoot) {
   const seenSlugs = new Map();
   const renderer = {
+    code(token) {
+      const language = codeLanguage(token.lang);
+      const languageClass = language && /^[a-z0-9_+-]+$/.test(language)
+        ? ' language-' + language
+        : '';
+      return '<pre><code class="hljs' + languageClass + '">' +
+        highlightCode(token.text, language) + '</code></pre>\n';
+    },
     heading(token) {
       const text = this.parser.parseInline(token.tokens);
       const base = slugText(token.text || text) || 'section';

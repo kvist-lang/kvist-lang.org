@@ -187,6 +187,38 @@ a:focus-visible {
   color: inherit;
   font-size: 0.82rem;
 }
+.markdown-body .hljs-comment,
+.markdown-body .hljs-quote {
+  color: #8f9a90;
+  font-style: italic;
+}
+.markdown-body .hljs-keyword,
+.markdown-body .hljs-built_in,
+.markdown-body .hljs-literal,
+.markdown-body .hljs-meta {
+  color: #acd2b3;
+}
+.markdown-body .hljs-string,
+.markdown-body .hljs-regexp {
+  color: #e7c98a;
+}
+.markdown-body .hljs-number,
+.markdown-body .hljs-type,
+.markdown-body .hljs-attribute {
+  color: #b9cbd6;
+}
+.markdown-body .hljs-symbol,
+.markdown-body .hljs-attr,
+.markdown-body .hljs-variable,
+.markdown-body .hljs-template-variable {
+  color: #d6c7a1;
+}
+.markdown-body .hljs-title,
+.markdown-body .hljs-name,
+.markdown-body .hljs-section {
+  color: var(--code-ink);
+  font-weight: 600;
+}
 .markdown-body table {
   display: block;
   overflow-x: auto;
